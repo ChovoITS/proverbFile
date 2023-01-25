@@ -21,14 +21,14 @@ def writeToFile(filePath, textToWrite):
     
 
 def main():
-    linesProverb = fileOpen("proverbFile/proverb.txt")
+    linesProverb = fileOpen("../docs/proverb.txt")
     for line in linesProverb:
         for charIndex in range(len(line)):
             if line[charIndex] != ' ':
                 if charIndex % 2 == 0: #Even
-                    writeToFile("proverbFile/file_proverb_even.txt", line[charIndex])
+                    writeToFile("../docs/file_proverb_even.txt", line[charIndex])
                 elif charIndex % 2 == 1:#Odd
-                    writeToFile("proverbFile/file_proverb_odd.txt", line[charIndex])
+                    writeToFile("../docs/file_proverb_odd.txt", line[charIndex])
 
 #This is a condition statement that that checks whether the value of the variable __name__ is equal to the string "__main__"
 #This is the case when you run your Python file as a script from the command line
