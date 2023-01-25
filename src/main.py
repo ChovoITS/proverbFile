@@ -18,7 +18,13 @@ def writeToFile(filePath, textToWrite):
 
 def main():
     linesProverb = fileOpen("proverbFile/proverb.txt")
-    writeToFile("proverbFile/file_proverb_even.txt", "Test")
+    for line in linesProverb:
+        for charIndex in range(len(line)):
+            if line[charIndex] != ' ':
+                if charIndex % 2 == 0:
+                    writeToFile("proverbFile/file_proverb_even.txt", line[charIndex])
+                elif charIndex % 2 == 1:
+                    writeToFile("proverbFile/file_proverb_odd.txt", line[charIndex])
 
 if __name__ == "__main__":
     main()
