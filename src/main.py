@@ -1,6 +1,9 @@
 #Functions that open a file in read mode
+import os
+import sys
+
 def fileOpen(filePath):
-    with open(filePath, 'r') as f:
+    with open(os.path.join(sys.path[0], filePath), 'r') as f:
         lines = f.readlines()
     return lines
 
@@ -8,13 +11,13 @@ def fileOpen(filePath):
 def writeToFile(filePath, textToWrite):
     #Try except to prevent not existing files
     try:
-        f = open(filePath, 'a')
+        f = open(os.path.join(sys.path[0], filePath), 'a')
     except FileNotFoundError:
-        f = open(filePath, 'x') #File is not existing
+        f = open(os.path.join(sys.path[0], filePath), 'x') #File is not existing
     except:
         print("Error reading file") #Generic error
     else:
-        f = open(filePath, 'a') #File is existing
+        f = open(os.path.join(sys.path[0], filePath), 'a') #File is existing
     finally:
         f.write(textToWrite)
         f.close()
